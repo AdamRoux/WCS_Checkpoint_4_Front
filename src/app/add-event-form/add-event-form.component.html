@@ -1,0 +1,78 @@
+<form
+  [formGroup]="createEventForm" (ngSubmit)="onSubmit()"
+  class="d-flex flex-column align-items-center"
+>
+  <div class="form-floating mb-3 col-md-4 col-4">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="title"
+      id="floatingInputTtile"
+      placeholder="Super vacances"
+    />
+    <label for="floatingInputTitle">Titre</label>
+  </div>
+  <div class="form-floating mb-3 col-md-4 col-4">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="description"
+      id="floatingInputDescription"
+      placeholder="Description de l'évènement"
+    />
+    <label for="floatingInputDescription">Description</label>
+  </div>
+  <div class="form-floating mb-3 col-md-4 col-4">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="place"
+      id="floatingInputPlace"
+      placeholder="Lieu de l'évènement"
+    />
+    <label for="floatingInputPlace">Lieu</label>
+  </div>
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label class="matForm">Choisissez une date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date" />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="picker"
+      class="matForm"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field> -->
+
+  <div class="form-floating mb-3 col-md-4 col-4">
+    <input
+      type="date"
+      class="form-control"
+      formControlName="date"
+      id="floatingInputDate"
+      placeholder="Date de l'évènement"
+    />
+    <label for="floatingInputDate">Date</label>
+  </div>
+
+  <mat-form-field appearance="fill" class="matForm" >
+  <mat-label class="matForm">Continent</mat-label>
+  <mat-select formControlName="continentId" class="matForm">
+    <mat-option *ngFor="let continent of continents" [value]="continent.id" class="matForm">{{
+      continent.name
+      }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="form-floating mb-3 col-md-4 col-4">
+    <input
+      type="text"
+      class="form-control"
+      formControlName="pictures"
+      id="floatingInputPictures"
+      placeholder="Photos de l'évènement"
+    />
+    <label for="floatingInputPictures">Photos</label>
+</div>
+<button type="submit" class="btn btn-dark">Publier</button>
+</form>
