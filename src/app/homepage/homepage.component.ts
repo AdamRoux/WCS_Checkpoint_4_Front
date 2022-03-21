@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Event } from '../shared/models/Event.model';
+import { EventService } from '../shared/services/event.service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  events: Event[] | undefined;
+
+
+  constructor(private router: Router, private eventService: EventService) { }
 
   ngOnInit(): void {
+    this.eventService.getEvents().subscribe((response: Event[]) => {
+      this.events = response;
+      console.log(this.events);
+    })
   }
 
   navigateToCreateForm() {
