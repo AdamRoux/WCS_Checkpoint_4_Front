@@ -18,13 +18,16 @@
             alt="..."
           />
         </div>
-        <div class="carousel-item" *ngIf="event.pictures[1]">
-          <img
-            src="{{ event.pictures[1].url }}"
-            class="w-100"
-            alt="..."
-          />
+        <div *ngIf="event.pictures.length > 1">
+            <div class="carousel-item" *ngFor="let picture of event.pictures; let i = index">
+                <img
+                src="{{ event.pictures[i].url }}"
+                class="w-100"
+                alt="..."
+                />
+            </div>
         </div>
+
       </div>
       <button
         class="carousel-control-prev"
