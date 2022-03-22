@@ -14,13 +14,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {HttpClientModule} from '@angular/common/http';
+import { EventComponent } from './event/event.component';
+import { ModifyEventFormComponent } from './modify-event-form/modify-event-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     HeaderComponent,
-    AddEventFormComponent
+    AddEventFormComponent,
+    EventComponent,
+    ModifyEventFormComponent
   ],
   imports: [
     BrowserModule,

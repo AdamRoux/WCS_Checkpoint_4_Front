@@ -1,3 +1,4 @@
+import { ContinentId } from "./ContinentId.model";
 import { Picture } from "./Picture.model";
 
 export class Event {
@@ -8,10 +9,10 @@ export class Event {
    private _date: Date;
    private _pictures: Picture[];
    private _creationDate: Date;
-   private _continentId: number;
+   private _continentId: ContinentId;
 
 
-	constructor(id: number, title: string, description: string, place: string, date: Date, pictures: Picture[], creationDate: Date, continentId: number) {
+	constructor(id: number, title: string, description: string, place: string, date: Date, pictures: Picture[], creationDate: Date, continentId: ContinentId) {
 		this._id = id;
 		this._title = title;
 		this._description = description;
@@ -78,13 +79,7 @@ export class Event {
 		return this._creationDate;
 	}
 
-    /**
-     * Getter continentId
-     * @return {number}
-     */
-	public get continentId(): number {
-		return this._continentId;
-	}
+  
 
     /**
      * Setter id
@@ -142,12 +137,22 @@ export class Event {
 		this._creationDate = value;
 	}
 
+
+    /**
+     * Getter continentId
+     * @return {ContinentId}
+     */
+	public get continentId(): ContinentId {
+		return this._continentId;
+	}
+
     /**
      * Setter continentId
-     * @param {number} value
+     * @param {ContinentId} value
      */
-	public set continentId(value: number) {
+	public set continentId(value: ContinentId) {
 		this._continentId = value;
 	}
+
 
 }

@@ -1,4 +1,4 @@
-<h1 class="text-center mb-5 mt-4">Ajouter un évènement !</h1>
+<h1 class="text-center mb-5 mt-4">Modifier l'évènement !</h1>
 <div class="container col-6 mt-4">
   <form
   #myForm = "ngForm"
@@ -25,20 +25,18 @@
     <label for="floatingInputTitle">Titre</label>
   </div>
   <div class="form-floating mb-3 col-md-4 col-4 w-100">
-    <textarea
+    <input
       type="text"
       class="form-control"
       formControlName="description"
       id="floatingInputDescription"
       placeholder="Description de l'évènement"
-      style="height: 100px"
       [ngClass]="{
         'is-invalid':
           (myForm.submitted && createEventForm.get('description')?.errors) ||
           (createEventForm.get('description')?.touched && createEventForm.get('description')?.errors)
       }"
-    >
-    </textarea>
+    />
     <label for="floatingInputDescription">Description</label>
   </div>
   <div class="form-floating mb-3 col-md-4 col-4 w-100">

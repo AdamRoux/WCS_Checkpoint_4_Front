@@ -1,35 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Continent } from '../shared/models/Continent.model';
+import { Event } from '../shared/models/Event.model';
 import { ContinentService } from '../shared/services/continent.service';
 import { EventService } from '../shared/services/event.service';
 
-
 @Component({
-  selector: 'app-add-event-form',
-  templateUrl: './add-event-form.component.html',
-  styleUrls: ['./add-event-form.component.sass']
+  selector: 'app-modify-event-form',
+  templateUrl: './modify-event-form.component.html',
+  styleUrls: ['./modify-event-form.component.sass']
 })
-export class AddEventFormComponent implements OnInit {
+export class ModifyEventFormComponent implements OnInit {
   createEventForm: FormGroup;
   continents: Continent[] | undefined;
   showNotification: boolean = false;
+  event: Event | undefined;
 
-  constructor(private fb: FormBuilder, private continentService: ContinentService, private eventService: EventService, private router: Router) {
+  constructor(private fb: FormBuilder, private continentService: ContinentService, private eventService: EventService, private router: Router,private route: ActivatedRoute) {
     this.createEventForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
       place: ['', Validators.required],
       date: ['', Validators.required],
       continentId: ['', Validators.required],
-      pictures: ['']
+      pictures: ['', Validators.required]
     })
    }
 
   ngOnInit(): void {
     this.continentService.getContinents().subscribe((response: Continent[]) => {
       this.continents = response;
+    })
+    this.route.params.subscribe((params) => {
+      this.eventService.getEventById(params['id']).subscribe((response: Event) => {
+        this.event = response;
+        console.log(response.date);
+        const d = response.date.toString().substring(0, 10);
+        const photos: string[] = [];
+        response.pictures.forEach(picture => {
+        photos.push(picture.url);
+        });
+        this.createEventForm = this.fb.group({
+          title: [response.title, Validators.required],
+          description: [response.description, Validators.required],
+          place: [response.place, Validators.required],
+          date: [d, Validators.required],
+          continentId: [response.continentId.id, Validators.required],
+          pictures: [photos]
+        })
+      })
     })
   }
 
@@ -50,7 +70,8 @@ export class AddEventFormComponent implements OnInit {
     formData.append('continentId', this.createEventForm.controls['continentId'].value);
     formData.append('pictures', this.createEventForm.controls['pictures'].value);
 
-    this.eventService.createEvent(formData).subscribe((response) => {
+    this.route.params.subscribe((params) => {
+        this.eventService.modifyEventById(params['id'] ,formData).subscribe((response) => {
       console.log(response);
     },
     (error) => {
@@ -59,13 +80,10 @@ export class AddEventFormComponent implements OnInit {
       }
       else this.showNotification = true;
     });
-
-
-    
+    })
   }
 
   navigateToHomePage() {
     this.router.navigateByUrl("/");
   }
-
 }

@@ -1,15 +1,57 @@
-<div class="container mt-5">
-    <div class="d-flex flex-column align-items-center">
-        <h1 class="mb-5">ALBUM PHOTOS</h1>
-        <button type="button" class="btn btn-primary" (click)="navigateToCreateForm()">Ajouter un évènement</button>
-    </div>
+<div class="container mt-5 col-12">
+  <div class="d-flex justify-content-center">
+    <h1 class="mb-3">ALBUM PHOTOS</h1>
+  </div>
+  <div class="d-flex justify-content-center mb-5">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="navigateToCreateForm()"
+    >
+      Ajouter un évènement
+    </button>
+  </div>
 
-    <div class="card" style="width: 18rem;" *ngFor="let event of events">
-        <img src="{{event.pictures[0].url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{event.title}}</h5>
-          <p class="card-text">{{event.description}}</p>
-          <a href="#" class="btn btn-primary">Voir</a>
+  <select class="form-select mb-5"  aria-label="Default select example" (change)="onSortOptionChange($event)">
+    <option selected>Trier par continent</option>
+    <option value="{{continent.id}}" *ngFor="let continent of continents" >{{continent.name}}</option>
+  </select>
+
+  <div class="d-flex flex-wrap">
+    <div class="card" *ngFor="let event of events">
+      <img *ngIf="event.pictures[0].url.length > 0"
+        src="{{ event.pictures[0].url }}"
+        class="card-img-top "
+        alt="Photo de l'évènement"
+      />
+      <img *ngIf="event.pictures[0].url == '' "
+      src="/assets/img/placeholder.jpeg"
+      class="card-img-top "
+      alt="Photo de l'évènement"
+    />
+      <div class="card-body">
+        <h5 class="card-title">{{ event.title }}</h5>
+        <p class="card-text">{{event.description.length > 50 ? (event.description | slice: 0:48) + '...' : event.description}}</p>
+
+        <div>
+          <a routerLink="/event/{{ event.id }}" class="btn btn-primary w-100 mb-1">Voir</a>
+          <a routerLink="/event/{{ event.id }}/modify" class="btn btn-primary w-100 mb-1"
+            >Modifier</a
+          >
         </div>
+        <div >
+          <a (click)="deleteEventById(event.id)" class="btn btn-danger w-100"
+            >Supprimer</a
+          >
+        </div>
+ 
+
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="alert alert-success alert-dismissible fade show notif w-100" role="alert" *ngIf="showNotification">
+    <strong>Succès !</strong> L'évènement a bien été supprimé.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>

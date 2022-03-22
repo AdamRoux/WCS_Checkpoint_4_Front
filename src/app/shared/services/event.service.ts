@@ -22,4 +22,16 @@ export class EventService {
   public getEvents(): Observable<Event[]> {
     return this.Http.get<Event[]>(environment.backUrl + 'events');
   }
+
+  public modifyEventById(id: number, eventParam: FormData): Observable<Event> {
+    return this.Http.patch<Event>(environment.backUrl + 'events/' + id, eventParam);
+  }
+
+  public deleteEventById(id: number) {
+    return this.Http.delete(environment.backUrl + 'events/' + id);
+  }
+
+  public getEventsByContinentId(id: number): Observable<Event[]> {
+    return this.Http.get<Event[]>(environment.backUrl + 'events/continent/' + id);
+  }
 }
