@@ -1,27 +1,144 @@
-# AlbumPhotos
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/VianneyAccart/ChopTonJob">
+    <img src="src/assets/img/toctoc_logo.png" alt="Logo TocToc">
+  </a>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+  <p align="center">
+    TocToc est une application qui permet d'acheter et de vendre des spécialités du monde entier.
+    <br /><br />
+    <a href="http://localhost:4200/">Découvrir l'application</a>
+    ·
+    Signaler un bug : <a href="https://github.com/WildCodeSchool/P3-toctoc-front-javangular-2021/issues">front</a> | <a href="https://github.com/WildCodeSchool/P3-toctoc-back-javangular-2021/issues">back</a>
+    ·
+    Proposer une fonctionnalité : <a href="https://github.com/WildCodeSchool/P3-toctoc-front-javangular-2021/pulls">front</a> | <a href="https://github.com/WildCodeSchool/P3-toctoc-back-javangular-2021/pulls">back</a>   
+  </p>
+</div>
 
-## Development server
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Sommaire</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">A propos du projet</a>
+      <ul>
+        <li><a href="#built-with">Outils de développement</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Bien démarrer</a>
+      <ul>
+        <li><a href="#prerequisites">Pré-requis</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Utilisation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<!-- ABOUT THE PROJECT -->
 
-## Code scaffolding
+## A propos du projet
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+AlbumPhotos est une application qui permet à des particuliers ainsi d'enregistrer des évènements auxquels ils ont pu participer.
 
-## Build
+<p align="right">(<a href="#top">Haut de page</a>)</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Outils de développement
 
-## Running unit tests
+- [Angular](https://angular.io/)
+- [Java/Spring](https://spring.io/)
+- [JPA](https://spring.io/projects/spring-data-jpa)
+- [Hibernate](https://hibernate.org/)
+- [MySQL](https://www.mysql.com/fr/)
+- [Bootstrap](https://getbootstrap.com)
+- [Angular Material](https://material.angular.io/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<p align="right">(<a href="#top">Haut de page</a>)</p>
 
-## Running end-to-end tests
+<!-- GETTING STARTED -->
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Bien démarrer
 
-## Further help
+Pour utiliser l'application, il vous sera nécessaire de suivre les étapes suivantes : <br/>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Pré-requis
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+- Angular
+  ```sh
+  npm install -g @angular/cli
+  ```
+
+- MySQL
+  ```sh
+  npm install mysql
+  ```
+
+- Installer <a href="https://www.java.com/fr/download/help/download_options.html" target="_blank">Java</a>
+
+- Installer <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html" target="_blank">Spring</a>
+<br/>
+
+
+### Installation
+
+1. Cloner le repository front-end
+   ```sh
+   git clone https://github.com/AdamRoux/WCS_Checkpoint_4_Front.git
+   ```
+<br/>
+
+2. Installer le package NPM
+   ```sh
+   npm install
+   ```
+<br/>
+
+3. Cloner le repository back-end
+   ```sh
+   git clone https://github.com/AdamRoux/WCS_Checkpoint_4_Back.git
+   ```
+<br/>
+
+4. Créer une base de donnée MySQL et mettre à jour le fichier ```application.properties```
+   ```sh
+   spring.datasource.url= jdbc:mysql://VOTRE_PORT/VOTRE_BASE_DE_DONNÉE?useSSL=false&serverTimezone=Europe/Paris
+   spring.datasource.username= VOTRE_USERNAME
+   spring.datasource.password= VOTRE_PASSWORD
+   ```
+<br/>
+
+5. Lancer votre serveur ce qui va créer automatiquement les tables dans la base de données
+
+6. Éxécuter le script SQL pour remplir la base de donnée avec les informations par défaut. Il est disponible dans la partie back-end : ```src/main/resources/initialization.sql```
+
+7. Lancer votre front
+   ```sh
+   ng s -o
+   ```
+
+<p align="right">(<a href="#top">Haut de page</a>)</p>
+
+<!-- USAGE EXAMPLES -->
+## Utilisation
+
+Une fois l'application lancée, vous pouvez : créer un évènement, modifier des évènements, supprimer un évènement... Reportez vous au manuel d'utilisation pour en savoir plus.
+
+<br/>
+
+
+## Contact
+
+### Wild Code School
+
+Adam ROUX - [LinkedIn](https://www.linkedin.com/in/adamroux/) - roux.adam69@gmail.com - [GitHub](https://github.com/AdamRoux)<br>
+
+
+<p align="right">(<a href="#top">Haut de page</a>)</p>
