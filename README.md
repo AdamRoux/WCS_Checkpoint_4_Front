@@ -1,18 +1,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/VianneyAccart/ChopTonJob">
-    <img src="src/assets/img/toctoc_logo.png" alt="Logo TocToc">
-  </a>
 
   <p align="center">
-    TocToc est une application qui permet d'acheter et de vendre des spécialités du monde entier.
+    Album Photos est une application qui permet de partager des évènements.
     <br /><br />
     <a href="http://localhost:4200/">Découvrir l'application</a>
-    ·
-    Signaler un bug : <a href="https://github.com/WildCodeSchool/P3-toctoc-front-javangular-2021/issues">front</a> | <a href="https://github.com/WildCodeSchool/P3-toctoc-back-javangular-2021/issues">back</a>
-    ·
-    Proposer une fonctionnalité : <a href="https://github.com/WildCodeSchool/P3-toctoc-front-javangular-2021/pulls">front</a> | <a href="https://github.com/WildCodeSchool/P3-toctoc-back-javangular-2021/pulls">back</a>   
   </p>
 </div>
 
